@@ -8,7 +8,7 @@ To know what impact upgrades to buy : https://jean-claude-dusse.github.io/arcadi
 It's a huge table.
 
 
-
+---
 
 
 This is the ugliest code you'll see this week.
