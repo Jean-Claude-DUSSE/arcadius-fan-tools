@@ -1,8 +1,14 @@
 To play with your tools : https://jean-claude-dusse.github.io/arcadius-fan-tools/arcadius-tool-optimizer/
+
 It's ugly. It matches old Arcadius UI. The game was better looking. i'm no artist.
 
+
 To know what impact upgrades to buy : https://jean-claude-dusse.github.io/arcadius-fan-tools/visual-pick-and-ore-sweetspot/
+
 It's a huge table.
+
+
+
 
 
 This is the ugliest code you'll see this week.
