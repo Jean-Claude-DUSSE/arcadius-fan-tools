@@ -113,7 +113,7 @@ for(a in arr[0])
 	material_name_container.setAttribute("class", "row_col_title");
 
 	let pic = document.createElement("IMG");
-	pic.src="../img/items/ores/ore_" + arr[0][a].material.name + "-2022-05.png";
+	pic.src="../img/items/ores/ore_" + (arr[0][a].material.name).toLowerCase() + "-2022-05.png";
 	pic.setAttribute("class", "row_col_pic");
 
 	material_name_container.appendChild(material_name);
@@ -150,7 +150,7 @@ for(a in arr)
 			let material_name = document.createTextNode(arr[a][b].tool.name);
 			
 			//td.appendChild(pic);
-			td.setAttribute("style", "position:relative; width:190px; height:170px; background-repeat:no-repeat; background-image:url('../img/tools/pickaxes/pick_" + arr[a][b].tool.name + "-2022-05.png')");
+			td.setAttribute("style", "position:relative; width:190px; height:170px; background-repeat:no-repeat; background-image:url('../img/tools/pickaxes/pick_" + (arr[a][b].tool.name).toLowerCase() + "-2022-05.png')");
 			
 			hc_container.appendChild(material_name);
 			td.appendChild(hc_container);
@@ -229,7 +229,7 @@ function get_content(data, cell)
 	let pic_container = document.createElement("SPAN");
 	pic_container.setAttribute("class", "img_container");
 	 pic = document.createElement("IMG");
-	pic.src="../img/tools/pickaxes/pick_" + data.tool.name + "-2022-05.png";
+	pic.src="../img/tools/pickaxes/pick_" + (data.tool.name).toLowerCase() + "-2022-05.png";
 	pic.setAttribute("class", "illustration");
 	pic_container.appendChild(pic);
 
@@ -239,7 +239,7 @@ function get_content(data, cell)
 	pic_container.appendChild(cheat_spacer);
 
 	let pic2 = document.createElement("IMG");
-	pic2.src="../img/items/ores/ore_" + data.material.name + "-2022-05.png";
+	pic2.src="../img/items/ores/ore_" + (data.material.name).toLowerCase() + "-2022-05.png";
 	pic2.setAttribute("class", "illustration");
 	pic_container.appendChild(pic2);
 	cell.appendChild(pic_container);
