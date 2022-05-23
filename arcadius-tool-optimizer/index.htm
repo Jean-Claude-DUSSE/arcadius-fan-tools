@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>⛏️Arcadius Pick & Ore Simulator (v0.9.8b)</title>
+		<link rel="stylesheet" media="screen, print" href="./reset.css" />
+		<link rel="stylesheet" media="screen, print" href="./style.css" />
+	</head>
+	<body>
+		<h1>⛏️Arcadius Pick & Ore tool (v0.2)</h1>
+		<div id="pick_settings" class="section_container">
+
+			<div id="read_me" class="sub_section_container">
+				<h2>Readme</h2>
+				<div class="settings_container">
+					<ol>
+						<li>Select your pickaxe.</li>
+						<li>Select your current upgrade levels.</li>
+						<li>(Optionnal) Select your desired upgrades for the future.</li>
+					</ol>
+					<p>
+						Once the slider is selected you can adjust it with your arrow keys.
+						<br>
+						The tier system is unofficial.<br >
+						It allows to get all<sup>*</sup> the values for an item from a single number, the tier.<br>
+						My research can be analyzed by taking a look at <a href="pickaxe.obj.js">this script</a>.<br />
+						(*)Some values are hardcoded, i think it's to slow the grind of the players during the beta.
+					</p>
+				</div>
+			</div>
+
+			<div id="pick_selector" class="sub_section_container">
+				<h2>Your pickaxe</h2>
+				<div id="pick_selector_container" class="settings_container">
+					<span id="selector_prev" class="selector_button">❰❰      </span>
+					<img id="selector_img" alt="The look of the pick" src="img/Wood_Pick.webp" title="your current pick"/>
+					<span id="selector_next" class="selector_button">      ❱❱</span>
+					<br />
+					<span id="selector_name">Name</span>
+				</div>
+			</div>
+
+			<div id="pick_lvl_0" class="sub_section_container">
+				<h2>Basic pickaxe</h2>
+				<div id="pick_lvl_0_container" class="settings_container">
+					<div>
+						<h3>Default values</h3>
+						<label>Impact :  </label> <span id="i_0">0</span><br />
+						<label>Durability :  </label> <span id="d_0">0</span><br />
+						<label>Repair :  </label> <span id="r_0">0</span><br />
+						<label>Base cost :  </label> <span id="c_0">0</span><br />
+					</div>
+				</div>
+			</div>
+
+			<div id="pick_lvl_x" class="sub_section_container">
+				<h2>Current pickaxe [<span id="i_x_lvl">0</span>/<span id="d_x_lvl">0</span>]</h2>
+				<div id="pick_lvl_x_container" class="settings_container">
+					<div>
+						<h3>Levels</h3>
+						<label for="i_x">Impact</label>
+						<input type="range" id="i_x" name="impact" min="0" max="0" /> <span id="i_x_val">0</span>
+						<br />
+						<label for="d_x">Durability</label>
+						<input type="range" id="d_x" name="durability" min="0" max="0" /> <span id="d_x_val">0</span>
+						<br />
+						<label>Upgrades</label>  <span id="id_x"></span>/<span id="id_x_max"></span> max<br />
+					</div>
+
+					<div >
+						<h3>Costs</h3>
+						<label>Impact :  </label> <span id="i_x_cost">0</span><br />
+						<label>Durability :  </label> <span id="d_x_cost">0</span><br />
+						<label>Both :  </label> <span id="id_x_cost">0</span><br />
+						<label>Repair :  </label> <span id="r_x_cost">0</span><br />
+						<label>Sale value :  </label> <span id="s_x_cost">0</span>
+					</div>
+				</div>
+			</div>
+
+			<div id="pick_lvl_future" class="sub_section_container">
+				<h2>Future pickaxe [<span id="i_future_lvl">0</span>/<span id="d_future_lvl">0</span>]</h2>
+				<div id="pick_lvl_future_container" class="settings_container">
+					<div>
+						<h3>Levels</h3>
+						<label for="i_future">Impact</label>
+						<input type="range" id="i_future" name="impact" min="0" max="0" /> <span id="i_future_val">0</span>
+						<br />
+						<label for="d_future">Durability</label>
+						<input type="range" id="d_future" name="durability" min="0" max="0" /> <span id="d_future_val">0</span>
+						<br />
+						<label>Upgrades</label>  <span id="id_future"></span>/<span id="id_future_max"></span> max<br />
+					</div>
+
+					<div >
+						<h3>Costs</h3>
+						<label>Impact :  </label> <span id="i_future_cost">0</span><br />
+						<label>Durability :  </label> <span id="d_future_cost">0</span><br />
+						<label>Both :  </label> <span id="id_future_cost">0</span><br />
+						<label>Repair :  </label> <span id="r_future_cost">0</span><br />
+						<label>Sale value :  </label> <span id="s_future_cost">0</span>
+					</div>
+
+					<div >
+						<h3>Delta Costs</h3>
+						<label>Impact :  </label> <span id="i_delta_cost">0</span><br />
+						<label>Durability :  </label> <span id="d_delta_cost">0</span><br />
+						<label>Both :  </label> <span id="id_delta_cost">0</span><br />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<h1>In relations with minerals</h1>
+		<div id="ore" class="section_container">
+			<div id="user_settings" class="sub_section_container">
+				<h2>Player settings</h2>
+				<div id="user_settings_container" class="settings_container">
+					<div id="ore_display_options">
+						<h3>Show/Hide collumns</h3>
+						<input col="col_ore_stats" 		type="checkbox" class="col_selector" checked="checked" id="option_1"/><label for="option_1">Basic stats</label><br />
+						<input col="col_ore_process" 	type="checkbox" class="col_selector" checked="checked" id="option_2"/><label for="option_2">Time stats</label><br />
+						<input col="col_ore_price" 		type="checkbox" class="col_selector" checked="checked" id="option_3"/><label for="option_3">Sell stats</label><br />
+						<input col="col_ore_computed" 	type="checkbox" class="col_selector" checked="checked" id="option_4"/><label for="option_4">Processing stats</label><br />
+						<input col="col_ore_pick" 	type="checkbox" class="col_selector" checked="checked" id="option_5"/><label for="option_5">Your pick stats</label><br />
+
+					</div>
+
+					<div id="player_settings" class="settings_container">
+						<h3>Your statistics</h3>
+						<label for="player_acc">Your average accuracy : </label><span id="player_acc_value">0</span>%<br />
+						<input type="range" id="player_acc" name="%" min="1" max="100" value="95"/>
+						<br />
+						<label for="player_drop">Your average drop per node: </label><span id="player_drop_value">0</span> drops<br />
+						<input type="range" id="player_drop" name="" min="1" max="10" value="3.5" step="0.1"/>
+					</div>
+					<div>
+						<h3>Comments</h3>
+						Once the slider is selected you can adjust it with your arrow keys.
+						<br>
+						You can hide the basic stuff about ores with the click of button on the left side of this block.
+						<br />
+
+					</div>
+				</div>
+			</div>
+			<div id="table_data" class="sub_section_container">
+				<table id="ore_stuff">
+					<colgroup id="ore_collumns">
+						<col span="3" id="col_ore">
+						<col span="3" id="col_ore_stats">
+						<col span="2" id="col_ore_process">
+						<col span="2" id="col_ore_price">
+						<col span="3" id="col_ore_computed">
+						<col span="7" id="col_ore_pick">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>Tier</th>
+							<th>Name</th>
+							<th>Image</th>
+
+							<th>Smeltable</th>
+							<th>Hitpoints</th>
+							<th>Durability</th>
+
+							<th>Respawn time (s)</th>
+							<th>Smelt time (s)</th>
+
+							<th>Price ($/ore)</th>
+							<th>Price ($/ingot)</th>
+
+							<th>Gold / Durability</th>
+							<th>Time for full stack smelt</th>
+							<th>Gold per second of cook</th>
+
+							<th>Hits to break</th>
+							<th>Amount of hits</th>
+							<th>Amount of nodes</th>
+							<th>Amount of drops</th>
+							<th>Gross income per run</th>
+							<th>Net income per run</th>
+							<th>Net income per hit</th>
+						</tr>
+					</thead>
+					<tbody id="ore_data">
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<h1>In relation with the blacksmith's repairs.</h1>
+		<div id="repair_graphs" class="section_container">
+			<div id="aaaa" class="sub_section_container">
+				<h2>Graphs of repairs costs = f(impact, durability)</h2>
+				<div id="repair_graphs_container" class="settings_container">
+					<table id="graph_absolute"></table>
+					<table id="graph_relative"></table>
+					<p class="graph_legend">Those graphs emphasise that the cost of repairing a pick is trilinear. It varies according to the impact level, the durability level and the product of those 2 levels. Unlike urban legends, it is not related to the sum of the upgrade levels. A pickaxe[100/0] has different repair cost than a pickaxe[50/50]. Currently, a pickaxe[100/0] has the same repair costs as a pickaxe[0/140] because those 2 upgrades are weighted equally.<br />
+					The formula is : <span class="formula">repair = round(t<sup>4</sup>/5 + t<sup>3</sup>/10 * i + t<sup>3</sup>/10 * d + d * i * t<sup>2</sup>/20)</span> with <span class="formula">t =</span> tier of the pickaxe, <span class="formula">i =</span> the impact level and <span class="formula">d =</span> the durability level.<br />
+					The red background is a visual clue showing how high the repair cost is compared to the repair cost of a brand new pickaxe.<br />
+					</p>
+				</div>
+			</div>
+		</div>
+
+
+		<script type="text/javascript" src="../global_data.js"></script>
+		<script type="text/javascript" src="../common/pickaxe.obj.js"></script>
+		<script type="text/javascript" src="ore.obj.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</body>
+</html>
+
+
