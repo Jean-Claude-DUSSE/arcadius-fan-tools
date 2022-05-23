@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Calculating the sweetspot for max earning per pickaxe</title>
+		<link rel="stylesheet" media="screen, print" href="./reset.css" />
+		<link rel="stylesheet" media="screen, print" href="./style.css" />
+	</head>
+	<body>
+		<h1>Arcadius - pickaxe and ore sweetspot for maximum income</h1>
+		<p>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+		</p>
+		<h2>Readme</h2>
+		<p>
+			This small table shows you how many impact level you need to be able to 1-shot at 100% any ore with any pickaxe.
+			<br />
+			It shows you your efficiency, in income-per-hit. <br />If a cell is empty, it means it's impossible.
+			<br />
+			Read the legend.
+			<br /> 
+		</p>
+		<table id="t">
+			<caption>
+			</caption>
+		</table>
+
+		<div id="legend">
+		<h2>Legend</h2>
+		<table>
+			<tr>
+				<td>
+					<span class="info_impact">[Impact required]</span>
+					<span class="nodes">#nodes per repair</span>
+					<span class="eff_factor">Net income per hit <img src="../img/coin.png" class="coin" />
+					</span>
+					<span class="investment">Upgrade costs <img src="../img/coin.png" class="coin"/></span>
+					<span class="img_container">
+						<img src="../img/tools/pickaxes/pick_Demonic-2022-05.png" class="illustration"/>
+						<span class="spacer">space</span>
+						<img src="../img/items/ores/ore_Demonic-2022-05.png" class="illustration"/>
+					</span>
+					<br>
+					<span class="legend">to use this Pick on this Ore</span>
+				</td>
+			</tr>
+		</table>
+		</div>
+
+
+		<script type="text/javascript" src="../global_data.js"></script>
+		<script type="text/javascript" src="./script.js"></script>
+	</body>
+</html>

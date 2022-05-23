@@ -1,0 +1,121 @@
+/* lilita-one-regular - latin */
+@font-face {
+	font-family:'Lilita One';
+	font-style:normal;
+	font-weight:400;
+	src:url('../fonts/lilita-one-v11-latin-regular.eot'); /* IE9 Compat Modes */
+	src:local(''),
+		url('../fonts/lilita-one-v11-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		url('../fonts/lilita-one-v11-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/lilita-one-v11-latin-regular.woff') format('woff'), /* Modern Browsers */
+		url('../fonts/lilita-one-v11-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/lilita-one-v11-latin-regular.svg#LilitaOne') format('svg'); /* Legacy iOS */
+}
+
+
+body{
+	font-family:'Lilita One', Helvetica, Arial, sans-serif;
+	background-color:#383B47;
+	padding:50px;
+	font-size:18px;
+	width: 4000px;
+	color: white;
+	text-shadow:2px 2px #000000, 2px 0px #000000, 2px -2px #000000, 0px 2px #000000, 0px -2px #000000, -2px 2px #000000, -2px 0px #000000, -2px -2px #000000;
+}
+
+h1{
+	font-family:'Lilita One', cursive;
+	color:#ffffff;
+	text-align:center;
+	padding:10px;
+	font-size:150px;
+	text-shadow:3px 3px #000000, 3px 0px #000000, 3px -3px #000000, 0px 3px #000000, 0px -3px #000000, -3px 3px #000000, -3px 0px #000000, -3px -3px #000000;
+}
+
+#legend{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background-color:rgba(56,59,71,0.7);
+}
+
+h2{
+	font-size: 70px;
+	margin-top: 20px;
+}
+
+th, td{
+	border:3px solid #70788c;
+	border-bottom-left-radius: 15px 255px;
+	border-bottom-right-radius: 225px 15px;
+	border-top-left-radius: 255px 15px;
+	border-top-right-radius: 15px 225px;
+	padding :6px;
+}
+th{
+	font-size: 27px;
+	text-align: center;
+	width: 150px;
+}
+.row_col_pic{
+	display: block;
+	width:90px;
+	margin: auto;
+}
+.row_col_title{
+	display : block;
+}
+.illustration{
+	width: 48px;
+}
+.img_container, .legend
+{
+	font-size: 14px;
+	text-align: center;
+}
+.heading_cell span{
+	position: absolute;
+      bottom: 3px;
+      right: 5px;
+     font-size: 30px;
+ }
+td span{
+	display : block;
+}
+
+.impossible{
+	display:none;
+}
+
+.coin{
+	height: 18px;
+}
+
+.info_impact{
+	color: #00ff00;
+}
+.income{
+
+}
+.income_neg{
+	color: red;
+}
+.nodes{
+	font-size: 130%;
+}
+.eff_factor, .eff_factor_neg{
+	text-align: right;
+	font-size: 130%;
+}
+.eff_factor_neg{
+	color: #FF0000;
+}
+.investment{
+	text-align: right;
+	font-size: 130%;
+}
+
+.spacer{
+	display: inline !important;
+	opacity: 0;
+}
